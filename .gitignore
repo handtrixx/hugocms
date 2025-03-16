@@ -2,4 +2,7 @@
 .env.local
 .DS_Store
 developer.md
-hugo/
+hugo/content/
+hugo/themes/nsde/
+hugo/public/
+hugo/resources/_gen/

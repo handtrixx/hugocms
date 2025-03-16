@@ -8,5 +8,5 @@ services:
       - ./hugo:/var/www/site
     ports:
       - "1313:1313"
-    env_file:
-      - .env
+    environment:
+      - STAGE=DEV
