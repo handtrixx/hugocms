@@ -1,6 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://niklas-stephan.de'
 title = 'niklas-stephan.de'
-theme = 'nsde'
+theme = 'theme'
 languageCode = "de"                        # This is the default language code
 defaultContentLanguage = "de"              # Set the default language
 languageDirection = "ltr"
