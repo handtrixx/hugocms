@@ -49,12 +49,22 @@ weight = 50
 unsafe = true
 
 [module]
-[module.hugoVersion]
-extended = false
-min = "0.116.0"
+  [module.hugoVersion]
+    extended = false
+    min      = "0.115.0"
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "hugo_stats.json"
+    target = "assets/watching/hugo_stats.json"
 
 [outputs]
 home = ["HTML", "JSON"]
+
+[build]
+  [build.buildStats]
+    enable = true
 
 [params]
 # NAVIGATION

@@ -37,8 +37,9 @@ elif [ "$STAGE" = "PRD" ]; then
     git clone $HUGO_CONTENT_GIT_URL content
   fi
   echo "Starting hugo server in prod mode"
-  hugo server --bind 0.0.0.0 --cleanDestinationDir --minify --renderToMemory
+  hugo server --bind 0.0.0.0 --cleanDestinationDir --minify --renderToMemory -e production
 else
   echo "Invalid STAGE. Exiting."
   exit 1
 fi
+ 

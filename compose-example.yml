@@ -1,13 +1,14 @@
 services:
-  app:
-    hostname: hugo.niklas-stephan.de
-    container_name: hugo.niklas-stephan.de
+  niklas-stephan.de:
+    hostname: niklas-stephan.de
+    container_name: niklas-stephan.de
     build: .
     restart: unless-stopped
     volumes:
       - ./hugo.toml:/var/www/site/hugo.toml
-      - ./content:/var/www/site/content
-      - ./theme:/var/www/site/themes/nsde
+      - ./postcss.config.js:/var/www/site/postcss.config.js
+      - ../content_niklas-stephan.de:/var/www/site/content
+      - ../hugo-theme_niklas-stephan.de:/var/www/site/themes/theme
     ports:
       - "1313:1313"
     environment:

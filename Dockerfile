@@ -1,7 +1,12 @@
 # Use an official Node.js runtime as a base image
 FROM golang:bookworm
 
-RUN apt-get update && apt-get install -y git curl net-tools procps &&  apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+#RUN apt-get update && apt-get install -y npm git curl net-tools procps &&  apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get update && \
+    apt-get install -y nodejs git curl net-tools procps && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #install hugo extended
 RUN CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
@@ -16,11 +21,14 @@ COPY --chown=hugo:hugo entrypoint.sh /entrypoint.sh
 
 # Expose the port your app runs on
 EXPOSE 1313
-# change user to hugoq
+# change user to hugo
 USER hugo
 
 RUN hugo new site site
 WORKDIR /var/www/site
+COPY --chown=hugo:hugo postcss.config.js /var/www/site/postcss.config.js
+RUN npm init -y
+RUN npm install postcss postcss-cli @fullhuman/postcss-purgecss --save -y
 
 # Define the startup command
 CMD ["sh","/entrypoint.sh"]
