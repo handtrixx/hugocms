@@ -6,10 +6,16 @@ const purgecss = purgeCSSPlugin({
     const els = JSON.parse(content).htmlElements;
     return [...(els.tags || []), ...(els.classes || []), ...(els.ids || [])];
   },
-  variables: true,
-  safelist: {
-    greedy: [/dark$/]
-  }
+  safelist: [
+    "html", 
+    "body", 
+    "dark", 
+    "light",
+    "data-bs-theme"
+  ],
+  keyframes: true,
+  fontFace: false,
+  variables: false,
 });
 
 export default {
