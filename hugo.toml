@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:1313'
+baseURL = 'https://niklas-stephan.de'
 title = 'niklas-stephan.de'
 theme = 'theme'
 languageCode = "de"                        # This is the default language code
