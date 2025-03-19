@@ -35,6 +35,7 @@ case $STAGE in
   DEV)
     echo "Running in DEV mode"
     hugo server -D --bind 0.0.0.0 --disableFastRender --ignoreCache --buildDrafts --buildExpired --buildFuture --cleanDestinationDir
+    
     tail -f /dev/null
     ;;
   QAS)
