@@ -19,8 +19,8 @@ RUN chown -R hugo:hugo /var/www
 WORKDIR /var/www
 
 COPY --chown=root:root entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
+COPY --chown=root:root cron.sh /cron.sh
+RUN chmod +x /entrypoint.sh /cron.sh
 
 # Expose the port your app runs on
 EXPOSE 1313
@@ -36,6 +36,10 @@ RUN npm install postcss postcss-cli @fullhuman/postcss-purgecss --save -y
 
 # Define the startup command
 CMD ["sh","/entrypoint.sh"]
+
+# Add healthcheck
+HEALTHCHECK --interval=180s --timeout=60s --start-period=20s --start-interval=5s \
+  CMD /cron.sh || exit 1
 
 
 
