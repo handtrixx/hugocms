@@ -1,4 +1,4 @@
-baseURL: {{ getenv "BASE_URL" | default "https://niklas-stephan.de" }}
+baseURL: ${BASE_URL}
 title: 'niklas-stephan.de'
 theme: 'theme'
 languageCode: "de"
