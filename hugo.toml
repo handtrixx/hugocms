@@ -74,6 +74,17 @@ enable = true
   colorprimarylight = '#d70b0b'
   colorsecondarylight = '#4b5257'
   colorfooterbg = '#222020'
-  remark42SiteID = "niklas-stephan-de"
-  remark42Url = "https://comments.niklas-stephan.de"
+
+[params.giscus]
+repo = "handtrixx/content_niklas-stephan.de"
+repoID = "R_kgDOOFkuRg"
+category = "Announcements"
+categoryID = "DIC_kwDOOFkuRs4CoSNu"
+mapping = "pathname"
+reactionsEnabled = "1"
+emitMetadata = "0"
+inputPosition = "top"
+theme = "preferred_color_scheme"
+lang = "de"
+loading = "lazy"
 
