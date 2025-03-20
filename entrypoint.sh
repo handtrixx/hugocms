@@ -34,17 +34,16 @@ fi
 case $STAGE in
   DEV)
     echo "Running in DEV mode"
-    hugo server -D --bind 0.0.0.0 --disableFastRender --ignoreCache --buildDrafts --buildExpired --buildFuture --cleanDestinationDir
-    
+    hugo server -D --bind 0.0.0.0 --baseURL $BASE_URL --disableFastRender --ignoreCache --buildDrafts --buildExpired --buildFuture --cleanDestinationDir
     tail -f /dev/null
     ;;
   QAS)
     echo "Running in QAS mode"
-    hugo server --bind 0.0.0.0 --cleanDestinationDir --minify -e testing
+    hugo server --bind 0.0.0.0 --baseURL $BASE_URL --buildDrafts --buildExpired --buildFuture --cleanDestinationDir --minify -e testing
     ;;
   PRD)
     echo "Running in PRD mode"
-    hugo server --bind 0.0.0.0 --cleanDestinationDir --disableLiveReload --minify -e production --renderToMemory
+    hugo server --bind 0.0.0.0 --baseURL $BASE_URL --cleanDestinationDir --disableLiveReload --minify -e production --renderToMemory
     ;;
   *)
     echo "Invalid STAGE. Exiting."
