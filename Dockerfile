@@ -30,7 +30,7 @@ USER hugo
 RUN hugo new site site
 WORKDIR /var/www/site
 COPY --chown=hugo:hugo postcss.config.js /var/www/site/postcss.config.js
-COPY --chown=hugo:hugo hugo.toml /var/www/site/hugo.toml
+COPY --chown=hugo:hugo hugo.yaml /var/www/site/hugo.yaml
 RUN npm init -y
 RUN npm install postcss postcss-cli @fullhuman/postcss-purgecss --save -y
 
