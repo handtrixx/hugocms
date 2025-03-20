@@ -1,8 +1,8 @@
-baseURL =  'https://niklas-stephan.de'
+baseURL = 'https://niklas-stephan.de'
 title = 'niklas-stephan.de'
 theme = 'theme'
-languageCode = "de"                       
-defaultContentLanguage = "de"   
+languageCode = "de"
+defaultContentLanguage = "de"
 languageDirection = "ltr"
 contentDir = 'content'
 languageName = 'Deutsch'
@@ -49,26 +49,26 @@ weight = 50
 unsafe = true
 
 [module]
-  [module.hugoVersion]
-    extended = false
-    min      = "0.115.0"
-  [[module.mounts]]
-    source = "assets"
-    target = "assets"
-  [[module.mounts]]
-    source = "hugo_stats.json"
-    target = "assets/watching/hugo_stats.json"
+[module.hugoVersion]
+extended = false
+min = "0.115.0"
+[[module.mounts]]
+source = "assets"
+target = "assets"
+[[module.mounts]]
+source = "hugo_stats.json"
+target = "assets/watching/hugo_stats.json"
 
 [outputs]
 home = ["HTML", "JSON"]
 
 [build]
-  [build.buildStats]
-    enable = true
+[build.buildStats]
+enable = true
 
 [services]
-  [services.disqus]
-    shortname = 'disqus_L7JZyNt525'
+[services.disqus]
+shortname = 'disqus_L7JZyNt525'
 
 [params]
 # NAVIGATION

@@ -11,6 +11,9 @@ const purgecss = purgeCSSPlugin({
     "body", 
     "dark", 
     "light",
+    "show",
+    "list-group-item",
+    "list-group-item-action",
     "data-bs-theme"
   ],
   keyframes: true,
