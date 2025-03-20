@@ -67,10 +67,13 @@ home = ["HTML", "JSON"]
 enable = true
 
 [params]
-# NAVIGATION
-navbarbrand = 'iklas-stephan.de'
-# COLORS
-colorprimary = "#dc3545"
-colorprimarylight = '#d70b0b'
-colorsecondarylight = '#4b5257'
-colorfooterbg = '#222020'
+  # NAVIGATION
+  navbarbrand = 'iklas-stephan.de'
+  # COLORS
+  colorprimary = "#dc3545"
+  colorprimarylight = '#d70b0b'
+  colorsecondarylight = '#4b5257'
+  colorfooterbg = '#222020'
+  remark42SiteID = "niklas-stephan-de"
+  remark42Url = "https://comments.niklas-stephan.de"
+
