@@ -44,7 +44,7 @@ case $STAGE in
     ;;
   PRD)
     echo "Running in PRD mode"
-    hugo server --bind 0.0.0.0 --cleanDestinationDir --disableLiveReload --minify -e production
+    hugo server --bind 0.0.0.0 --cleanDestinationDir --disableLiveReload --minify -e production --renderToMemory
     ;;
   *)
     echo "Invalid STAGE. Exiting."
