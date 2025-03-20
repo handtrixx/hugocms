@@ -39,7 +39,7 @@ case $STAGE in
     ;;
   QAS)
     echo "Running in QAS mode"
-    hugo server --bind 0.0.0.0 --baseURL $BASE_URL --buildDrafts --buildExpired --buildFuture --cleanDestinationDir --minify -e testing
+    hugo server --bind 0.0.0.0 --baseURL $BASE_URL --buildDrafts --buildExpired --buildFuture --cleanDestinationDir --liveReloadPort 433 --minify -e testing
     ;;
   PRD)
     echo "Running in PRD mode"
