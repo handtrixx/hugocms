@@ -34,7 +34,7 @@ fi
 case $STAGE in
   DEV)
     echo "Running in DEV mode"
-    hugo server -D --bind 0.0.0.0 --baseURL $BASE_URL --disableFastRender --ignoreCache --buildDrafts --buildExpired --buildFuture --cleanDestinationDir
+    hugo server -D --bind 0.0.0.0 --baseURL $BASE_URL --disableFastRender --ignoreCache --buildDrafts --buildExpired --buildFuture --cleanDestinationDir --liveReloadPort 433
     tail -f /dev/null
     ;;
   QAS)
