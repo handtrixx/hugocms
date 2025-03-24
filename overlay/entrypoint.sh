@@ -41,7 +41,7 @@ if [ -z "$QAS_URL" ]; then
 else
     echo "QAS URL is set to $QAS_URL"
     cd /var/www/qas
-    hugo server --bind 0.0.0.0 --port 1314 --baseURL $QAS_URL --buildDrafts --buildExpired --buildFuture --cleanDestinationDir --environment testing --disableLiveReload --minify --watch --contentDir "/var/www/content" --themesDir "/var/www/themes" &
+    hugo server --bind 0.0.0.0 --port 1314 --baseURL $QAS_URL --buildDrafts --buildExpired --buildFuture --cleanDestinationDir --environment testing --disableFastRender --disableLiveReload --minify --watch --contentDir "/var/www/content" --themesDir "/var/www/themes" &
 fi
 
 if [ -z "$PRD_URL" ]; then
@@ -49,7 +49,7 @@ if [ -z "$PRD_URL" ]; then
 else
     echo "PRD URL is set to $PRD_URL"
     cd /var/www/prd
-    hugo server --bind 0.0.0.0 --port 1313 --baseURL $PRD_URL --cleanDestinationDir --environment production --disableLiveReload --minify --watch --renderToMemory --contentDir "/var/www/content" --themesDir "/var/www/themes" &
+    hugo server --bind 0.0.0.0 --port 1313 --baseURL $PRD_URL --cleanDestinationDir --environment production --disableFastRender --disableLiveReload --minify --watch --renderToMemory --contentDir "/var/www/content" --themesDir "/var/www/themes" &
 fi
 
 echo "Hugo started"
