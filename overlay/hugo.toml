@@ -1,5 +1,6 @@
 theme = 'theme'
 ignoreLogs = ['warning-goldmark-raw-html']
+defaultContentLanguage = "de"
 
 [languages]
 [languages.de]
@@ -10,11 +11,6 @@ title = "niklas-stephan.de"
 languageCode = "de"
 languageDirection = "ltr"
 
-[[languages.de.menus.main]]
-identifier = "home"
-name = "Start"
-url = "/"
-weight = 10
 
 [languages.en]
 languageName = "English"
