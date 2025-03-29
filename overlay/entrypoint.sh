@@ -28,29 +28,24 @@ fi
 
 # switch command for $STAGE variables
 # check for environment variable STAGE
-if [ -z "$DEV_URL" ]; then
-  echo "DEV STAGE is not set. Exiting."
-else
-    echo "DEV URL is set to $DEV_URL"
-    cd /var/www/dev
-    hugo server --environment "development" --bind 0.0.0.0 --port 1315 --baseURL $DEV_URL --buildDrafts --buildExpired --buildFuture --cleanDestinationDir --ignoreCache --disableFastRender --disableLiveReload --watch &
-fi
-
-if [ -z "$QAS_URL" ]; then
-  echo "QAS STAGE is not set. Exiting."
-else
-    echo "QAS URL is set to $QAS_URL"
-    cd /var/www/qas
-    hugo server --environment "testing" --bind 0.0.0.0 --port 1314 --baseURL $QAS_URL --buildDrafts --buildExpired --buildFuture --cleanDestinationDir --disableFastRender --disableLiveReload --minify --watch --contentDir "/var/www/content" --themesDir "/var/www/themes" &
-fi
-
-if [ -z "$PRD_URL" ]; then
-  echo "PRD STAGE is not set. Exiting."
-else
-    echo "PRD URL is set to $PRD_URL"
-    cd /var/www/prd
-    hugo server --environment "production" --bind 0.0.0.0 --port 1313 --baseURL $PRD_URL --cleanDestinationDir --disableFastRender --disableLiveReload --minify --watch --renderToMemory --contentDir "/var/www/content" --themesDir "/var/www/themes" &
-fi
+# switch $STAGE variable
+echo "STAGE is set to $ENVIRONMENT"
+echo "URL is set to $BASE_URL"
+case "$ENVIRONMENT" in
+  development)
+    hugo server --environment $ENVIRONMENT --bind 0.0.0.0 --baseURL $BASE_URL --buildDrafts --buildExpired --buildFuture --cleanDestinationDir --ignoreCache --disableFastRender --disableLiveReload --watch &
+    ;;
+  testing)
+    hugo server --environment $ENVIRONMENT --bind 0.0.0.0 --baseURL $BASE_URL --buildDrafts --buildExpired --buildFuture --cleanDestinationDir --disableFastRender --disableLiveReload --minify --watch &
+    ;;
+  production)
+    hugo server --environment $ENVIRONMENT --bind 0.0.0.0 --baseURL $BASE_URL --cleanDestinationDir --disableFastRender --disableLiveReload --minify --watch --renderToMemory &
+    ;;
+  *)
+    echo "No valid stage set. Exiting."
+    exit 1
+    ;;
+esac
 
 echo "Hugo started"
 tail -f /dev/null

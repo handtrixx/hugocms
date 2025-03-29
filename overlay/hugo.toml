@@ -1,6 +1,7 @@
 theme = 'theme'
 ignoreLogs = ['warning-goldmark-raw-html']
 defaultContentLanguage = "de"
+defaultContentLanguageInSubdir = false
 
 [languages]
 [languages.de]
