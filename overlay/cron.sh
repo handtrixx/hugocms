@@ -1,4 +1,5 @@
 #!/bin/bash
+changed=false
 
 # Function to check for new commits and perform git pull if needed
 pull_if_new_commits() {
@@ -23,20 +24,26 @@ pull_if_new_commits() {
 if [ -z "$HUGO_THEME_GIT_URL" ]; then
   echo "HUGO_THEME_GIT_URL is not set. Will use local clone."
 else
-  #echo "Pulling theme updates from $HUGO_THEME_GIT_URL"
-  #cd /var/www/themes/theme
-  #git pull $HUGO_THEME_GIT_URL
-  #cd -
   pull_if_new_commits /var/www/themes/theme $HUGO_THEME_GIT_URL
+  # set changed variable to true
+  changed=true
 fi
 
 # check for environment variable HUGO_CONTENT_GITURL
 if [ -z "$HUGO_CONTENT_GIT_URL" ]; then
   echo "HUGO_CONTENT_GIT_URL is not set. Will use local clone."
 else
-  #echo "Pulling content updates from $HUGO_CONTENT_GIT_URL"
-  #cd /var/www/content
-  #git pull $HUGO_CONTENT_GIT_URL
-  #cd -
   pull_if_new_commits /var/www/content $HUGO_CONTENT_GIT_URL
+  # set changed variable to true
+  changed=true
+  
 fi
+
+  ## run a hugo build if ENVIRONMENT is production and changed is true
+  
+if [ "$ENVIRONMENT" == "production" ] && [ "$changed" == "true" ]; then
+    echo "Running hugo build for production"
+    hugo --environment $ENVIRONMENT --destination /dev/shm/nsde --baseURL $BASE_URL --cleanDestinationDir --minify
+  else 
+    echo "Not in production environment or nothing changed. Skipping hugo build."
+  fi

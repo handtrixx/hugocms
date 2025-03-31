@@ -39,7 +39,8 @@ case "$ENVIRONMENT" in
     hugo server --environment $ENVIRONMENT --bind 0.0.0.0 --baseURL $BASE_URL --buildDrafts --buildExpired --buildFuture --cleanDestinationDir --disableFastRender --disableLiveReload --minify --watch &
     ;;
   production)
-    hugo server --environment $ENVIRONMENT --bind 0.0.0.0 --baseURL $BASE_URL --cleanDestinationDir --disableFastRender --disableLiveReload --minify --watch --renderToMemory &
+    #hugo server --environment $ENVIRONMENT --bind 0.0.0.0 --baseURL $BASE_URL --cleanDestinationDir --disableFastRender --disableLiveReload --minify --watch --destination /dev/shm/nsde &
+    hugo --environment $ENVIRONMENT --destination /dev/shm/nsde --baseURL $BASE_URL --cleanDestinationDir --minify
     ;;
   *)
     echo "No valid stage set. Exiting."
