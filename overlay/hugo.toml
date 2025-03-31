@@ -12,6 +12,49 @@ title = "niklas-stephan.de"
 languageCode = "de"
 languageDirection = "ltr"
 
+# Language-specific menus for German
+[[languages.de.menus.main]]
+identifier = "home"
+name = "Start"
+url = "/de/"
+weight = 10
+
+[[languages.de.menus.main]]
+identifier = "blog"
+name = "Blog"
+url = "/de/blog"
+weight = 20
+
+[[languages.de.menus.footer]]
+identifier = "home"
+name = "Startseite"
+url = "/de/"
+weight = 10
+
+[[languages.de.menus.footer]]
+identifier = "blog"
+name = "Blog"
+url = "/de/blog"
+weight = 20
+
+[[languages.de.menus.footer]]
+identifier = "privacy"
+name = "Datenschutz"
+url = "/de/privacy"
+weight = 30
+
+[[languages.de.menus.footer]]
+identifier = "imprint"
+name = "Impressum"
+url = "/de/imprint"
+weight = 40
+
+[[languages.de.menus.footer]]
+identifier = "search"
+name = "Suche"
+url = "/de/search"
+weight = 50
+
 
 [languages.en]
 languageName = "English"
@@ -21,46 +64,47 @@ title = "niklas-stephan.de"
 languageCode = "en"
 languageDirection = "ltr"
 
-[[menus.main]]
+# Language-specific menus for English
+[[languages.en.menus.main]]
 identifier = "home"
 name = "Home"
-url = "/"
+url = "/en/"
 weight = 10
 
-[[menus.main]]
+[[languages.en.menus.main]]
 identifier = "blog"
 name = "Blog"
-url = "/blog"
+url = "/en/blog"
 weight = 20
 
-[[menus.footer]]
+[[languages.en.menus.footer]]
 identifier = "home"
 name = "Home"
-url = "/"
+url = "/en/"
 weight = 10
 
-[[menus.footer]]
+[[languages.en.menus.footer]]
 identifier = "blog"
 name = "Blog"
-url = "/blog"
+url = "/en/blog"
 weight = 20
 
-[[menus.footer]]
+[[languages.en.menus.footer]]
 identifier = "privacy"
-name = "Datenschutz"
-url = "/privacy"
+name = "Privacy Policy"
+url = "/en/privacy"
 weight = 30
 
-[[menus.footer]]
+[[languages.en.menus.footer]]
 identifier = "imprint"
-name = "Impressum"
-url = "/imprint"
+name = "Imprint"
+url = "/en/imprint"
 weight = 40
 
-[[menus.footer]]
+[[languages.en.menus.footer]]
 identifier = "search"
-name = "Suche"
-url = "/search"
+name = "Search"
+url = "/en/search"
 weight = 50
 
 [markup]
@@ -96,9 +140,7 @@ home = ["HTML", "JSON"]
 enable = true
 
 [params]
-# NAVIGATION
 navbarbrand = 'iklas-stephan.de'
-# COLORS
 colorprimary = "#dc3545"
 colorprimarylight = '#d70b0b'
 colorsecondarylight = '#4b5257'
