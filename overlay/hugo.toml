@@ -59,7 +59,7 @@ weight = 50
 [languages.en]
 languageName = "English"
 weight = 2
-contentDir = "content/en"
+contentDir = "content/de"
 title = "niklas-stephan.de"
 languageCode = "en"
 languageDirection = "ltr"
