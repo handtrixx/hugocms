@@ -15,7 +15,7 @@ languageDirection = "ltr"
 # Language-specific menus for German
 [[languages.de.menus.main]]
 identifier = "home"
-name = "Start"
+name = "Home"
 url = "/de/"
 weight = 10
 
@@ -27,7 +27,7 @@ weight = 20
 
 [[languages.de.menus.footer]]
 identifier = "home"
-name = "Startseite"
+name = "Home"
 url = "/de/"
 weight = 10
 
