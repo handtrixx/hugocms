@@ -1,6 +1,5 @@
 theme = 'theme'
 ignoreLogs = ['warning-goldmark-raw-html']
-defaultContentLanguage = "de"
 title = "niklas-stephan.de"
 languageCode = "de"
 languageDirection = "ltr"
