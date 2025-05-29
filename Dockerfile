@@ -2,9 +2,8 @@
 FROM golang:bookworm
 
 #RUN apt-get update && apt-get install -y npm git curl net-tools procps &&  apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
-    apt-get update && \
-    apt-get install -y nodejs git curl net-tools procps && \
+RUN apt-get update && \
+    apt-get install -y git curl net-tools procps && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -18,8 +17,8 @@ RUN mkdir -p /var/www/public
 RUN chown -R hugo:hugo /var/www
 
 COPY --chown=root:root entrypoint.sh /entrypoint.sh
-COPY --chown=root:root cron.sh /cron.sh
-RUN chmod +x /entrypoint.sh /cron.sh
+#COPY --chown=root:root cron.sh /cron.sh
+RUN chmod +x /entrypoint.sh
 
 # Expose the port your app runs on
 EXPOSE 1313
@@ -28,18 +27,14 @@ USER hugo
 
 WORKDIR /var
 RUN hugo new site www
-COPY --chown=hugo:hugo postcss.config.js /var/www/postcss.config.js
-COPY --chown=hugo:hugo hugo.toml /var/www/hugo.toml
 WORKDIR /var/www
-RUN npm init -y
-RUN npm install postcss postcss-cli @fullhuman/postcss-purgecss --save -y
 
 # Define the startup command
 CMD ["sh","/entrypoint.sh"]
 
 # Add healthcheck
-HEALTHCHECK --interval=60s --timeout=50s --start-period=20s --start-interval=5s \
-  CMD /cron.sh || exit 1
+#HEALTHCHECK --interval=60s --timeout=50s --start-period=20s --start-interval=5s \
+#  CMD /cron.sh || exit 1
 
 
 

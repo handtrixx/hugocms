@@ -1,0 +1,16 @@
+services:
+  nsde-dev:
+    #image: niklas-stephan.de:latest
+    build: .
+    hostname: nsde-dev
+    container_name: nsde-dev
+    restart: unless-stopped
+    environment:
+      - ENVIRONMENT=development
+      - BASE_URL=http://localhost
+    ports:
+      - "1313:1313"
+    volumes:
+      - ./hugo.toml:/var/www/hugo.toml
+      - ../content_niklas-stephan.de:/var/www/content
+      - ../hugo-theme_niklas-stephan.de:/var/www/themes/theme
