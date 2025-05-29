@@ -48,7 +48,6 @@ name = "Suche"
 url = "/search"
 weight = 50
 
-
 [markup]
 [markup.goldmark]
 [markup.goldmark.renderer]
